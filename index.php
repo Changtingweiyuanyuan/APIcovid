@@ -26,9 +26,9 @@ include_once 'base.php';
 				<a class="blo" href="?do=info">related info</a>
     </div>
     
-    <div class="right col-sm-12 col-md-12 col-lg-9">
-        <div class="r_block float-left">
-        <!-- 背景 寬70% 高0 padding-bottom:97.85% -->
+    <div class="right col-sm-12 col-md-8 col-lg-6">
+        <div class="r_block">
+            <!-- <img src="857.png" class="img-fluid" style="height:100%;z-index:-1"> -->
         <marquee><?=$Marquee->find(['sh'=>1])['text'];?></marquee>
                 <div class="r_text">
 				<!-- main -->
