@@ -21,9 +21,9 @@ include_once 'base.php';
         <div class=" d-flex justify-content-center flex-column align-items-center">
             <div>嚴重特殊傳染性肺炎 近期新聞</div>
             <div class="nav">
-                <a class="blo" href="?do=news">latest news</a>
-                <a class="blo" href="?do=pop">pop news</a>
-                <a class="blo" href="?do=info">related info</a>
+                <span><a class="blo" href="?do=news">latest news</a></span>
+                <span><a class="blo" href="?do=moving">moving news</a></span>
+                <span><a class="blo" href="?do=info">related info</a></span>
             </div>
 
     <div class="center col-sm-12 col-md-9 col-lg-6 ">

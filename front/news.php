@@ -2,9 +2,23 @@
 <!-- 五篇一分頁 -->
 <!-- 繼續閱讀 加在詳細報導之後 套bootstrap collapse -->
 <!-- Chart.js 下方製作國家危險程度(以出現國家名來列) -->
+<div class="pic" style="position:relative;padding-bottom:10px">
+<img src="857.png" style="width:100%;height:100%">
+<div class="table" style="position:absolute;top: 2%;left: 4%;width: 92%;height:92%;overflow:auto;">
+
 
     <div id="news">
         <p id="add">近三個月內新聞 <i class="far fa-clock"></i></p>
+
+        <div>
+            <span style="width:20%"><b>日期</b></span>
+            <span style="width:80%" id="ondate"><?=$n['title'];?></span>
+        </div>
+        <div>
+            <span style="width:20%"><b>相關國家</b></span>
+            <span style="width:80%"><?=$n['title'];?></span>
+        </div>
+
 
 
         <table>
@@ -70,3 +84,7 @@
 
 <!-- ${re[i].description.slice(0,80) 80字文章 -->
 <!-- `).replace(/\s*/g,"") : '';  把空白都取消掉-->
+
+
+</div>
+</div>
