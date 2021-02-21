@@ -13,11 +13,6 @@
                 <th style="width:30%">相關國家</th>
                 <th style="width:45%">本篇報導</th>
             </tr>
-            <!-- <tr>
-        <td>sent</td>
-        <td>areaDesc</td>
-        <td>description</td>
-    </tr> -->
         </table>
 
         <script>

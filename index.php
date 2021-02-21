@@ -16,21 +16,17 @@ include_once 'base.php';
     <title>COVID</title>
 </head>
 <body>
-    <div class="container">
     
-    <!-- <div class="title d-flex"><div>Coronavirus</div><div id="t2">Update</div></div> -->
-<div class="center d-flex">
-    <div class="left col-3 d-flex">
+    <div class="bg container">
+        <div class=" d-flex justify-content-center flex-column align-items-center">
+            <div>嚴重特殊傳染性肺炎 近期新聞</div>
+            <div class="nav">
                 <a class="blo" href="?do=news">latest news</a>
-				<a class="blo" href="?do=pop">pop news</a>
-				<a class="blo" href="?do=info">related info</a>
-    </div>
-    
-    <div class="right col-sm-12 col-md-8 col-lg-6">
-        <div class="r_block">
-            <!-- <img src="857.png" class="img-fluid" style="height:100%;z-index:-1"> -->
-        <marquee><?=$Marquee->find(['sh'=>1])['text'];?></marquee>
-                <div class="r_text">
+                <a class="blo" href="?do=pop">pop news</a>
+                <a class="blo" href="?do=info">related info</a>
+            </div>
+
+    <div class="center col-sm-12 col-md-9 col-lg-6 ">
 				<!-- main -->
 				<?php
 				$do = (isset($_GET['do']))?$_GET['do']:'main';
@@ -41,12 +37,10 @@ include_once 'base.php';
 					include_once "front/main.php";
 				}
 				?>
-				</div>
-        </div>
     </div>
 </div>
 
-
+</div>
 
 
 </div>

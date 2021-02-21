@@ -1,25 +1,26 @@
 <fieldset>
-<legend>目標位置：首頁 > 人氣文章區</legend>
-    <table>
-        <tr>
-            <th class="ct" style="width:30%">標題</th>
-            <th class="ct" style="width:50%">內容</th>
-            <th class="ct" style="width:20%">人氣</th>
-        </tr>
+<div class="pic" style="position:relative;padding-bottom:10px">
+<img src="857.png" style="width:100%;height:100%">
+<div class="table" style="position:absolute;top: 2%;left: 4%;width: 92%;height:92%;overflow:auto;">
+<marquee><?=$Marquee->find(['sh'=>1])['text']?></marquee>
+<div>
         <?php
         $count=$News->count();
-        $div=5;
+        $div=3;
         $pages=ceil($count/$div);
         $now=(isset($_GET['p']))?$_GET['p']:'1';
         $start=($now-1)*$div;
         $news=$News->all(['sh'=>1],"order by `good` desc limit $start,$div");
         foreach($news as $k => $n){
         ?>
-        <tr>
-            <td class="ct" onmouseover="op(this)" onmouseout="clo(this)"><?=$n['title'];?></td>
-            <td class="ct"><?=mb_substr($n['text'],'0','30');?></td>
-            <td class="ct" style="background:rgba(51,51,51,0.8); color:#FFF; min-height:100px; width:300px; position:fixed; display:none; z-index:9999; overflow:auto;"><?=$n['text'];?></td>
-            <td class="ct">
+        <div>
+            <span style="width:20%"><b>標題</b></span>
+            <span style="width:80%"><?=$n['title'];?></span>
+        </div>
+        <div>
+            <span style="width:20%"><b>人氣</b></span>
+            <span style="width:80%">
+            
             <?=$n['good'];?>個人說讚<img src="icon/02B03.jpg" style="height:20px;width:20px">
             <?php
             if(isset($_SESSION['login'])){
@@ -37,19 +38,38 @@
                 }
             }
             ?>
-            </td>
-        </tr>
+            
+            </span>
+        </div>
+        
+        <div style="margin-bottom:4%;width:100%;">
+
+            <div id="a<?=$k?>">
+                <div style="width:100%;">
+                <?=mb_substr($n['text'],'0','50');?>
+                </div>
+                <div style="width:100%;text-align:right">
+                <button class="btn btn-outline-dark p-1" style="font-size:0.8rem;" onclick="text(<?=$k?>)">繼續觀看</button>
+                </div>
+            </div>
+
+            <div style="display:none" id="b<?=$k?>">完整內容<br>
+            <?=$n['text'];?>
+            </div>
+
+        </div>
+        <!-- <div><img src="image/line1.png" style="width:100%;filter:opacity(.5)"></div> -->
         <?php
         }?>
-    </table>
-    <div class="ct" style="width:100%">
+    </div>
+    <div style="width:100%;" class="d-flex justify-content-center align-items-center">
     <?php
     if(($now-1)>0){
         echo '<a href="?do=pop&p='.($now-1).'"><</a>';
     }
     for($i=1;$i<=$pages;$i++){
-        $fs=($i==$now)?'40px':'18px';
-        echo '<a href="?do=pop&p='.$i.'" style="font-size:'.$fs.'">'.$i.'</a>';
+        $fs=($i==$now)?'bolder':'none';
+        echo '<a href="?do=pop&p='.$i.'" style="font-weight:'.$fs.'">'.$i.'</a>';
     }
     
     if(($now+1)<=$pages){
@@ -57,6 +77,12 @@
     }
     ?>
     </div>
+
+
+</div>
+
+</div>
+
 </fieldset>
 
 <script>
@@ -67,5 +93,13 @@ function op(title){
 function clo(title){
     $(title).next().next().toggle();
     $(title).next().toggle();
+}
+
+function text(k){
+   console.log($('a'+k))
+    $('#a'+k).fadeOut(500,function(){
+        $('#b'+k).fadeIn(500)
+    })
+    
 }
 </script>
